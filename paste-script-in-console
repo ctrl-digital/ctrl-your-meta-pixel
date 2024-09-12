@@ -1,0 +1,48 @@
+(function() {
+    console.log('%cHello!\nThis script will check how your Facebook pixels are configured.\nIf anything shows up in red, it could pose a risk of PII leaks and should require attention!', 'color: white;');
+    
+    if (typeof _fbq !== 'undefined') {     
+        let pixelsOnSite =  Object.keys(_fbq.instance.pixelsByID);  
+        console.log(`%cThese Facebook pixels were found on the site ${pixelsOnSite.join(', ')}.`, ';');
+
+        //Check for Automaic Matching v2
+        console.log("\nNow we are going to check if Advanced Matching (collection of PII) is activated.");
+
+        if (typeof _fbq.instance.optIns._opts.AutomaticMatching === 'undefined') {
+            console.log('%cAdvanced Matching is not activated on this site for any pixel. You should be safe!', 'color: green;');
+   
+        } else {
+            matching = _fbq.instance.optIns._opts.AutomaticMatching
+            pixelsOnSite.forEach(pixelID => {
+            if (pixelID in matching && matching[pixelID] ) {
+                console.log(`%cPixel ${pixelID} have activated Advanced Matching! This means that personal identifiers can be scraped and sent to Meta servers.` , 'color: red;');
+            } else {
+                console.log(`%cPixel ${pixelID} have not activated Advanced Matching. You should be safe! `, 'color: green;');
+            }
+            });
+        }
+    
+        // Check for Automatic Events
+        console.log("\nNow we are going to check if Automatic Events (collection of events) is de-activated.");
+        if (typeof _fbq.instance.optIns._opts.AutomaticSetup === 'undefined') {
+            console.log('%cAutomatic Events is not de-activated on this site for any pixel. This means that user events are automatically tracked and sensitive information could be sent to Meta servers.', 'color: red;');
+        } else {
+            let pixelsThareAreOptOutOfAS = _fbq.instance.optIns._opts.AutomaticSetup;
+            
+            pixelsOnSite.forEach(pixelID => {
+            if (pixelID in pixelsThareAreOptOutOfAS) {
+                if (!pixelsThareAreOptOutOfAS[pixelID]) {
+                    console.log(`%cPixel ${pixelID} have de-activated Automatic Events! It should not automatically collect user events.` , 'color: green;');
+                } else {
+                    console.log(`%cPixel ${pixelID} have NOT de-activated Automatic Events. This means that user events are automatically tracked and sensitive information could be sent to Meta servers.`, 'color: red;');
+                }
+            } else {
+                console.log(`%cPixel ${pixelID} have NOT de-activated Automatic Events. This means that user events are automatically tracked and sensitive information could be sent to Meta servers.`, 'color: red;');
+            }
+            });
+            
+        }
+        } else {console.log(`%cNo Facebook Pixel detected on this site`, 'color: white;'); }  
+         console.log(`%c\nThis script is made by Ctrl Digital - If you need help or have questions about how to make your Facebook tracking safe, reach out to hello@ctrldigital.com`, 'color: white;');
+
+})();
