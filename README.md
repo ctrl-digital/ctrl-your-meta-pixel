@@ -22,4 +22,4 @@ The script will run and check whether Advanced Matching and Automatic Events are
 # Disclaimer
 This tool is intended to help website owners or administrators assess potential privacy risks associated with their Meta Pixel implementation. It is not a substitute for a comprehensive privacy audit or legal advice. Please ensure that you comply with local privacy regulations and Meta’s terms of service.
 
-For more information or support, please contact Ctrl Digital.
+For more information or support, please contact Ctrl Digital at hello@ctrldigital.com
