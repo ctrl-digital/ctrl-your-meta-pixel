@@ -13,8 +13,7 @@ To check if your site is using these features, follow the steps below:
 
 - Download the script from this repository [here](paste-this-script-in-console)
 - Open your website in a web browser.
-- Open the browser’s Developer Console.
-- On most browsers, you can do this by right-clicking the page and selecting Inspect or by pressing Ctrl + Shift + I (Windows/Linux) or Cmd + Option + I (Mac).
+- Open the browser’s Developer Console. On most browsers, you can do this by right-clicking the page and selecting Inspect or by pressing Ctrl + Shift + I (Windows/Linux) or Cmd + Option + I (Mac).
 - In the Console tab, paste the script you downloaded from the repository.
 - Hit Enter.
 The script will run and check whether Advanced Matching and Automatic Events are enabled on the site. If either of these features is found to be active, you may want to review your Meta Pixel configuration to ensure compliance with privacy regulations and avoid unintentionally sharing PII.
