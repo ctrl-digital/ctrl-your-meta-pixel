@@ -1,5 +1,5 @@
 # ctrl-your-meta-pixel
-This repository contains a script developed by Ctrl Digital that checks how the Meta (Facebook) Pixel is implemented on a website. The script specifically verifies if the Advanced Matching and Automatic Events features are enabled, which could inadvertently lead to the sharing of Personally Identifiable Information (PII).
+This repository contains a script developed by Ctrl Digital that checks how the Meta (Facebook) Pixel is implemented on a website. The script specifically verifies if the **Advanced Matching** and **Automatic Events** features are enabled, which could inadvertently lead to the sharing of Personally Identifiable Information (PII).
 
 # How It Works
 The Meta Pixel can be used to track user behavior on websites for marketing purposes. While these tracking features can be useful, they also pose potential privacy risks if misconfigured, particularly with the sharing of PII. The two features our script checks are:
