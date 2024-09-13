@@ -11,7 +11,7 @@ If these features are activated, there's a risk that PII could be shared without
 # How to Use the Script
 To check if your site is using these features, follow the steps below:
 
-- Download the script from this repository
+- Download the script from this repository [here](paste-this-script-in-console)
 - Open your website in a web browser.
 - Open the browser’s Developer Console.
 - On most browsers, you can do this by right-clicking the page and selecting Inspect or by pressing Ctrl + Shift + I (Windows/Linux) or Cmd + Option + I (Mac).
